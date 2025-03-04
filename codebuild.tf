@@ -58,7 +58,7 @@ resource "aws_codebuild_project" "terraform_dryrun" {
     buildspec           = "codebuild/buildspec-dryrun.yml"
     git_clone_depth     = 1
     insecure_ssl        = false
-    location            = "https://github.com/zukizukizuki/aws-terraform.git"
+    location            = "https://github.com/Narutaso/terraform_test.git"
     report_build_status = false
     type                = "GITHUB"
     git_submodules_config {
@@ -124,7 +124,7 @@ resource "aws_codebuild_project" "terraform_apply" {
     buildspec           = "codebuild/buildspec-apply.yml"
     git_clone_depth     = 1
     insecure_ssl        = false
-    location            = "https://github.com/zukizukizuki/aws-terraform.git"
+    location            = "https://github.com/Narutaso/terraform_test.git"
     report_build_status = false
     type                = "GITHUB"
     git_submodules_config {
@@ -160,7 +160,7 @@ resource "aws_iam_role" "terraform_plan" {
   assume_role_policy    = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"codebuild.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
   description           = null
   force_detach_policies = false
-  managed_policy_arns   = ["arn:aws:iam::${var.USERID}:policy/service-role/CodeBuildBasePolicy-terraform-dryrun-ap-northeast-1", "arn:aws:iam::aws:policy/PowerUserAccess" , "arn:aws:iam::aws:policy/IAMReadOnlyAccess"]
+  managed_policy_arns   = ["arn:aws:iam::${var.USERID}:policy/service-role/CodeBuildBasePolicy-terraform-dryrun-ap-northeast-1", "arn:aws:iam::aws:policy/PowerUserAccess", "arn:aws:iam::aws:policy/IAMReadOnlyAccess"]
   max_session_duration  = 3600
   name                  = "codebuild-s-service-role"
   name_prefix           = null
@@ -175,7 +175,7 @@ resource "aws_iam_role" "terraform_apply" {
   assume_role_policy    = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"codebuild.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
   description           = null
   force_detach_policies = false
-  managed_policy_arns   = ["arn:aws:iam::${var.USERID}:policy/service-role/CodeBuildBasePolicy-terraform-apply-ap-northeast-1", "arn:aws:iam::aws:policy/PowerUserAccess" , "arn:aws:iam::aws:policy/IAMReadOnlyAccess"]
+  managed_policy_arns   = ["arn:aws:iam::${var.USERID}:policy/service-role/CodeBuildBasePolicy-terraform-apply-ap-northeast-1", "arn:aws:iam::aws:policy/PowerUserAccess", "arn:aws:iam::aws:policy/IAMReadOnlyAccess"]
   max_session_duration  = 3600
   name                  = "codebuild-t-service-role"
   name_prefix           = null

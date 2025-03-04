@@ -7,8 +7,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "zukkie-terraform-state"
-    key    = "terraform.state"
+    bucket = "narutaso-bucket"
+    key    = "terraform.tfstate"
     region = "ap-northeast-1"
   }
 }
