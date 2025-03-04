@@ -1,5 +1,6 @@
 version: 0.2
 
+# 一旦コメントアウト
 # env:
 #   parameter-store:
 #     GITHUB_TOKEN: "codebuild-github-token"
