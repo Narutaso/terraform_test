@@ -9,6 +9,7 @@ TERRAFORM_VERSION="1.5.4"
 wget -q "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 unzip -d /usr/local/bin "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 
+# ログ表示強化用
 # wget "https://github.com/suzuki-shunsuke/tfcmt/releases/download/${TFCMT_VERSION}/tfcmt_linux_amd64.tar.gz" -P /tmp
 # tar zxvf /tmp/tfcmt_linux_amd64.tar.gz -C /tmp
 # mv /tmp/tfcmt /usr/local/bin/tfcmt
