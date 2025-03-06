@@ -13,7 +13,7 @@ resource "aws_codebuild_project" "terraform_dryrun" {
   queued_timeout         = 480
   resource_access_role   = null
   service_role           = "arn:aws:iam::${var.USERID}:role/service-role/codebuild-s-service-role"
-  source_version         = null
+  source_version         = "terraform-test"
   tags                   = {}
   tags_all               = {}
   artifacts {
@@ -183,4 +183,36 @@ resource "aws_iam_role" "terraform_apply" {
   permissions_boundary  = null
   tags                  = {}
   tags_all              = {}
+}
+
+resource "aws_codebuild_webhook" "terraform_dryrun" {
+  project_name = aws_codebuild_project.terraform_dryrun.name
+
+  // PR作成・更新時
+  filter_group {
+    filter {
+      type    = "EVENT"
+      pattern = "PULL_REQUEST_CREATED"
+    }
+  }
+
+  filter_group {
+    filter {
+      type    = "EVENT"
+      pattern = "PULL_REQUEST_UPDATED"
+    }
+  }
+
+  // masterブランチpush時
+  filter_group {
+    filter {
+      type    = "EVENT"
+      pattern = "PUSH"
+    }
+
+    filter {
+      type    = "HEAD_REF"
+      pattern = "terraform-test"
+    }
+  }
 }
