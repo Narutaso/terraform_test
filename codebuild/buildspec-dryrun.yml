@@ -17,4 +17,5 @@ phases:
   build:
     commands:
       - chmod +x ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh
-      - ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh $userID
+      - ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh "{UserId}"
+      # - ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh $userID
