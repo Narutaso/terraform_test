@@ -79,7 +79,7 @@ resource "aws_codebuild_project" "terraform_apply" {
   queued_timeout         = 480
   resource_access_role   = null
   service_role           = "arn:aws:iam::${var.USERID}:role/service-role/codebuild-t-service-role"
-  source_version         = null
+  source_version         = "terraform-test"
   tags                   = {}
   tags_all               = {}
   artifacts {
