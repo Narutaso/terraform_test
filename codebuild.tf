@@ -185,6 +185,7 @@ resource "aws_iam_role" "terraform_apply" {
   tags_all              = {}
 }
 
+# ウェブフック作成
 resource "aws_codebuild_webhook" "terraform_dryrun" {
   project_name = aws_codebuild_project.terraform_dryrun.name
 
