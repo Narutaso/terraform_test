@@ -4,6 +4,9 @@ version: 0.2
 #   parameter-store:
 #     GITHUB_TOKEN: "codebuild-github-token"
 #     userID: "user_id"
+env:
+  variables:
+    userID: "458485069334"
 
 phases:
   install:
@@ -14,4 +17,4 @@ phases:
   build:
     commands:
       - chmod +x ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh
-      - ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh
+      - ${CODEBUILD_SRC_DIR}/scripts/dryrun.sh $userID
